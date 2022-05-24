@@ -1,9 +1,75 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-    id 'com.android.application' version '7.1.2' apply false
-    id 'com.android.library' version '7.1.2' apply false
-}
+apply plugin: 'com.alipay.apollo.optimize'
+
+buildscript {
+    ext.mpaas_artifact = "mpaas-baseline"
+    ext.mpaas_baseline = "10.1.68-47"
+    dependencies {
+        classpath 'com.android.boost.easyconfig:easyconfig:2.4.8'
+        classpath 'com.android.tools.build:gradle:4.0.1'
+    }
+    repositories {
+        mavenLocal()
+        google()
+        mavenCentral()
+        maven {
+            url 'http://mvn.cloud.alipay.com/nexus/content/repositories/releases/'
+            name 'alipay'
+            credentials {
+                username 'mvn_read_ws'
+                password 'mrk8929'
+            }
+        }
+        maven {
+            url 'http://mvn.cloud.alipay.com/nexus/content/repositories/public/'
+            name 'alipay'
+            credentials {
+                username 'mvn_read_ws'
+                password 'mrk8929'
+            }
+        }
+        maven {
+            url 'http://mvn.cloud.alipay.com/nexus/content/repositories/google/'
+            name 'alipay'
+            credentials {
+                username 'mvn_read_ws'
+                password 'mrk8929'
+            }
+        }
+    }
+}// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+allprojects {
+repositories {
+    mavenLocal()
+    google()
+    mavenCentral()
+    maven {
+        url 'http://mvn.cloud.alipay.com/nexus/content/repositories/releases/'
+        name 'alipay'
+        credentials {
+            username 'mvn_read_ws'
+            password 'mrk8929'
+        }
+    }
+    maven {
+        url 'http://mvn.cloud.alipay.com/nexus/content/repositories/public/'
+        name 'alipay'
+        credentials {
+            username 'mvn_read_ws'
+            password 'mrk8929'
+        }
+    }
+    maven {
+        url 'http://mvn.cloud.alipay.com/nexus/content/repositories/google/'
+        name 'alipay'
+        credentials {
+            username 'mvn_read_ws'
+            password 'mrk8929'
+        }
+    }
+}
 }

@@ -1,38 +1,82 @@
 plugins {
     id 'com.android.application'
+    id 'com.alipay.apollo.baseline.config'
 }
 
 android {
-    compileSdk 31
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.china.mpaasaar"
-        minSdk 23
-        targetSdk 31
+        minSdkVersion 23
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs{
+        release{
+            keyAlias '123456'
+            keyPassword '123456'
+            storeFile file('comTestKey.jks')
+            storePassword '123456'
+            v1SigningEnabled true
+        }
+        debug{
+            keyAlias '123456'
+            keyPassword '123456'
+            storeFile file('comTestKey.jks')
+            storePassword '123456'
+            v1SigningEnabled true
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug{
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
         }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+
+    sourceSets{
+        sit{
+            assets.srcDirs=["src/sit/assets"]
+            res.srcDirs=["src/sit/res"]
+        }
+        product{
+            assets.srcDirs=["src/product/assets"]
+            res.srcDirs=["src/product/res"]
+        }
+    }
+
+    flavorDimensions("workSpace","abi")
+    productFlavors{
+        sit{
+            dimension 'workSpace'
+        }
+        product{
+            dimension 'workSpace'
+        }
+        xiaomi{
+            dimension 'abi'
+        }
+    }
 }
 
 dependencies {
-
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation platform("com.mpaas.android:$mpaas_artifact:$mpaas_baseline")
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.mpaas.android:framework'
+    implementation 'com.mpaas.android:configservice'
 }
