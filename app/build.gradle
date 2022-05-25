@@ -79,4 +79,5 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.mpaas.android:framework'
     implementation 'com.mpaas.android:configservice'
+    implementation 'com.mpaas.android:rpc'
 }
