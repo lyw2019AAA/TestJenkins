@@ -9,6 +9,12 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:textColor="#f00"
+        android:textSize="18sp"
+        android:layout_width="wrap_content"
+        android:text="tag测试"
+        android:layout_height="wrap_content" />
+    <TextView
         android:id="@+id/con"
         android:textColor="#f00"
         android:textSize="18sp"
