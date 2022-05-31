@@ -10,8 +10,8 @@ android {
         applicationId "com.china.mpaasaar"
         minSdkVersion 23
         targetSdkVersion 31
-        versionCode 1
-        versionName "1.0"
+        versionCode VERSION_CODE.toInteger()
+        versionName APP_VERSION.toString()
 
     }
     signingConfigs{
