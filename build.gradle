@@ -3,8 +3,9 @@ apply plugin: 'com.alipay.apollo.optimize'
 buildscript {
     ext.mpaas_artifact = "mpaas-baseline"
     ext.mpaas_baseline = "10.1.68-47"
+
     dependencies {
-        classpath 'com.android.boost.easyconfig:easyconfig:2.4.8'
+        classpath 'com.android.boost.easyconfig:easyconfig:2.6.4'
         classpath 'com.android.tools.build:gradle:4.0.1'
     }
     repositories {

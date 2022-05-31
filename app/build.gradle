@@ -68,7 +68,10 @@ android {
         product{
             dimension 'workSpace'
         }
-        xiaomi{
+        cmpsv8a{
+            dimension 'abi'
+        }
+        cmpsv7a{
             dimension 'abi'
         }
     }
