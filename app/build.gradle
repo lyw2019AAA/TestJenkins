@@ -12,7 +12,7 @@ android {
         targetSdkVersion 31
         versionCode VERSION_CODE.toInteger()
         versionName APP_VERSION.toString()
-
+        buildConfigField "String", "APP_VERSION", "1.0.0"
     }
     signingConfigs{
         release{
